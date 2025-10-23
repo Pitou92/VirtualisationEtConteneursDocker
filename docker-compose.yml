@@ -1,0 +1,24 @@
+services:
+  nginx1:
+    image: nginx:latest
+    container_name: nginx1
+    ports:
+      - "8081:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+
+  nginx2:
+    image: nginx:latest
+    container_name: nginx2
+    ports:
+      - "8082:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+
+  apache:
+    image: httpd:latest
+    container_name: apache
+    ports:
+      - "8083:80"
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html:ro
